@@ -35,4 +35,3 @@ Thumbs.db
 Desktop.ini
 
 # Supabase config (optional — if sensitive)
-src/Config/Supabase.jsx
