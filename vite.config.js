@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import legacy from "@vitejs/plugin-legacy";
+
 export default defineConfig({
   plugins: [
     react(),
@@ -11,7 +12,9 @@ export default defineConfig({
     }),
   ],
   server: {
-    historyApiFallback: true, // 👈 Add this line
+    fs: {
+      strict: true,
+    },
   },
   build: {
     minify: "terser",
@@ -20,7 +23,10 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            return id.toString().split("node_modules/")[1].split("/")[0];
+            const parts = id.split("node_modules/");
+            if (parts[1]) {
+              return parts[1].split("/")[0];
+            }
           }
         },
       },
