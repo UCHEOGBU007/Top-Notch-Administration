@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Styles from "../Css/Dashboard.module.css";
-import supabase from "../config/Supabase.jsx";
+import supabase from "../Config/Supabase.jsx";
 
 // Using self-contained SVG components for confirmed status
 const CheckCircleIcon = (props) => (
