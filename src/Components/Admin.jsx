@@ -20,7 +20,9 @@ const Admin = () => {
         <button
           className={Styles.logoutButton}
           onClick={() => {
-            navigate("/", { replace: true });
+            if (window.confirm("Are you sure you want to log out?")) {
+              navigate("/", { replace: true });
+            }
           }}
         >
           Log out

@@ -88,7 +88,9 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     // Optimistic UI update
-    setReservations((prev) => prev.filter((res) => res.id !== id));
+    if (window.confirm("Are you sure you want to delete this reservation?")) {
+      setReservations((prev) => prev.filter((res) => res.id !== id));
+    }
 
     const { error } = await supabase
       .from("top_notch_reservations")
