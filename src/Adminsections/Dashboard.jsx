@@ -99,6 +99,9 @@ const Dashboard = () => {
 
     if (error) {
       console.error("Error deleting reservation:", error);
+    } else {
+      // Only update UI after successful deletion
+      fetchReservations(); // Refresh from backend
     }
   };
 
